@@ -18,55 +18,6 @@ function init() {
         }
     });
 
-    // dz.on("complete", function (file) {
-    //     let imageData = file.dataURL;
-
-    //     $.post(API_URL, {
-    //         image_data: imageData
-    //     },function(data, status) {
-    //         console.log(data);
-    //         if (!data || data.length==0) {
-    //             $("#resultHolder").hide();
-    //             $("#divClassTable").hide();                
-    //             $("#error").show();
-    //             return;
-    //         }
-    //         // let players = ["lionel_messi", "maria_sharapova", "roger_federer", "serena_williams", "virat_kohli"];
-            
-    //         let match = null;
-    //         let bestScore = -1;
-
-    //         for (let i=0;i<data.length;++i) {
-    //             let maxScoreForThisClass = Math.max(...data[i].class_probability);
-
-    //             if(maxScoreForThisClass>bestScore) {
-    //                 match = data[i];
-    //                 bestScore = maxScoreForThisClass;
-    //             }
-    //         }
-
-    //         if (match) {
-    //             $("#error").hide();
-    //             $("#resultHolder").show();
-    //             $("#divClassTable").show();
-
-    //             $("#resultHolder").html($(`[data-player="${match.class}"`).html());
-                
-    //             let classDictionary = match.class_dictionary;
-                
-    //             for(let personName in classDictionary) {
-                    
-    //                 let index = classDictionary[personName];
-    //                 let proabilityScore = match.class_probability[index];
-    //                 let elementName = "#score_" + personName;
-
-    //                 $(elementName).html(proabilityScore);
-    //             }
-    //         }
-    //         dz.removeFile(file);
-    //     });
-    // });
-
     $("#submitBtn").on('click', function () {
 
         if (dz.files.length === 0) {
@@ -84,7 +35,8 @@ function init() {
 
             if (!data || data.length === 0) {
                 $("#resultHolder").hide();
-                $("#divClassTable").hide();                
+                $("#divClassTable").hide();   
+                $("#divMessage").hide();             
                 $("#error").show();
                 return;
             }
@@ -105,6 +57,7 @@ function init() {
                 $("#error").hide();
                 $("#resultHolder").show();
                 $("#divClassTable").show();
+                $("#divMessage").show();
 
                 $("#resultHolder").html($(`[data-player="${match.class}"`).html());
                 
@@ -129,6 +82,7 @@ $(document).ready(function() {
     $("#error").hide();
     $("#resultHolder").hide();
     $("#divClassTable").hide();
+    $("#divMessage").hide();
 
     init();
 });
