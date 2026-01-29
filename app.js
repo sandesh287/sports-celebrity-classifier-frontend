@@ -2,7 +2,7 @@ Dropzone.autoDiscover = false;
 
 function init() {
 
-    const API_URL = "http://127.0.0.1:5000/classify_image";
+    const API_URL = "https://sports-celebrity-classifier-backend.onrender.com/classify_image";
 
     let dz = new Dropzone("#dropzone", {
         url: "#",
